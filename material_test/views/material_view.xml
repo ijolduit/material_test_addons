@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="material_view_test_view_tree" model="ir.ui.view">
+        <field name="name">material.view.test.view.tree</field>
+        <field name="model">test.material</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name="buy_price"/>
+                <field name="related_supplier"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_test_view_search_view" model="ir.ui.view">
+            <field name="name">material.test.view.search.view</field>
+            <field name="model">test.material</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <search string="Material">
+                    <field name="type"/>
+                </search>
+            </field>
+    </record>
+
+    <record id="material_test_action_view_tree" model="ir.actions.act_window">
+        <field name="name">Material</field>
+        <field name="res_model">test.material</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="material_test_menu_root"
+        name="Materials"
+        action="material_test_action_view_tree"
+        sequence="101"/>
+
+    <menuitem
+        id="material_test_menu_main"
+        parent="material_test_menu_root"
+        name="Materials"
+        action="material_test_action_view_tree"
+        sequence="1"/>
+
+
+</odoo>
